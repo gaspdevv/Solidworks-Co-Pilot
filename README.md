@@ -2,7 +2,7 @@
 
 ### SolidWorks için merkezi dosya numaralandırma ve kayıt takibi
 
-Solidworks Co-Pilot, **Pronom** adıyla geliştirilen bir SolidWorks 2023 eklentisi, merkezi API ve web uygulamasıdır. Parça ve montaj dosyalarına ortak bir numara dizisinden ad verir; başarılı kayıtları tek bir web ekranında listeler.
+Solidworks Co-Pilot, bir SolidWorks 2023 eklentisi, merkezi API ve web uygulamasıdır. Parça ve montaj dosyalarına ortak bir numara dizisinden ad verir; başarılı kayıtları tek bir web ekranında listeler.
 
 Amaç, küçük bir ekipte farklı bilgisayarlardan oluşturulan dosyaları tutarlı biçimde adlandırmak ve kayıt sonuçlarını kolayca takip etmektir. Kullanıcı modelini SolidWorks içinde kaydeder; numaralandırma ve merkezi kayıt işlemlerini uygulama yürütür.
 
