@@ -1,0 +1,6 @@
+﻿{
+  "Ortam": "Test",
+  "IpAdresi": "127.0.0.1",
+  "SqlSunucusu": ".\\SQLEXPRESS",
+  "Veritabani": "SolidWorksAutomation_ApiTest_20261012_01"
+}

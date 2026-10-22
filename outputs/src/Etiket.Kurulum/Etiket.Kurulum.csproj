@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+  <OutputType>WinExe</OutputType><TargetFramework>net48</TargetFramework><LangVersion>latest</LangVersion><PlatformTarget>x64</PlatformTarget>
+  <AutomaticallyUseReferenceAssemblyPackages>false</AutomaticallyUseReferenceAssemblyPackages><AssemblyName>Pronom.Kurulum</AssemblyName>
+  <Version>2026.10.22.1</Version><Company>Pronom</Company><Product>Pronom SolidWorks Co-Pilot Kurulumu</Product><Description>SolidWorks 2023 için Kaydet27 komut sırası ve bağımsız kayıt kuyruğu düzeltmesi</Description><ApplicationManifest>app.manifest</ApplicationManifest>
+ </PropertyGroup>
+ <ItemGroup>
+  <Reference Include="Microsoft.CSharp"/><Reference Include="System.Core"/><Reference Include="System.Windows.Forms"/><Reference Include="System.Drawing"/><Reference Include="System.Net.Http"/>
+  <Reference Include="System.Web.Extensions"/><Reference Include="System.IO.Compression"/><Reference Include="System.IO.Compression.FileSystem"/>
+  <EmbeddedResource Include="paket.zip" LogicalName="Pronom.Paket.zip"/>
+  <EmbeddedResource Include="paket.json" LogicalName="Pronom.Paket.json"/>
+  <EmbeddedResource Include="Arayuz.config" LogicalName="Pronom.Arayuz.config"/>
+ </ItemGroup>
+</Project>

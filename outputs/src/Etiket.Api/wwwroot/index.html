@@ -1,0 +1,119 @@
+﻿<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pronom · Dosya kayıtları</title>
+<link rel="stylesheet" href="/pronom.css?v=20261020-setup"></head><body>
+<div class="pencere"><header class="ust"><div class="marka"><button class="panel-dugmesi" id="panelDugmesi" type="button" aria-controls="solPanel" aria-expanded="true" aria-label="Sol paneli kapat" title="Sol paneli kapat"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16m7-11-3 3 3 3" id="panelOku"/></svg></button><span class="simge">P</span>Pronom <span class="marka-aciklama">SolidWorks Co-Pilot</span></div><span class="onizleme">Merkezi belge yönetimi</span></header><div class="govde" id="pencereGovdesi"><aside class="yan" id="solPanel"><small>ÇALIŞMA ALANI</small><button class="menu aktif" id="kayitlarMenusu"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Dosya kayıtları</button><button class="menu" id="ayarlarMenusu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></svg>Bağlantı bilgileri</button><div class="yanalt"><b>Ortak kayıt alanı</b><br>Parça · P &nbsp; Montaj · M<br><span class="yanalt-kucuk">PRONOM · SOLIDWORKS</span></div></aside><main>
+<section id="kayitlarSayfasi"><div class="baslik"><div><span class="ust-etiket">BELGE MERKEZİ</span><h1>Dosya kayıtları</h1><p>Parça ve montaj kayıtlarını tek bir yerden takip edin.</p></div><div class="baslik-islemleri"><a class="buton birincil" id="setupIndir" href="/indir/Pronom-Kurulum.exe" download="Pronom-Kurulum.exe" title="Windows için güncel eklenti kurulumu ve güncelleme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg>Eklentiyi indir</a><button class="buton" id="yenile"><svg viewBox="0 0 24 24"><path d="M19 8a8 8 0 1 0 1 7M19 3v5h-5"/></svg>Durumu yenile</button></div></div><div class="kartlar"><div class="kart"><span class="kart-ikonu" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="8" rx="2"/><rect x="4" y="13" width="16" height="8" rx="2"/><path d="M8 7h.01M8 17h.01M13 7h4M13 17h4"/></svg></span><h2>SERVİS DURUMU</h2><div class="durum"><span class="nokta" id="servisNoktasi"></span><span id="servisDurumu">Kontrol ediliyor</span></div><p id="servisNotu">Servis kontrolü bekleniyor</p></div><div class="kart"><span class="kart-ikonu" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 4 16 4 16 0V5M4 12v7c0 4 16 4 16 0v-7"/></svg></span><h2>VERİTABANI BAĞLANTISI</h2><div class="durum"><span class="nokta" id="sqlNoktasi" style="background:#a2aab5"></span><span id="sqlDurumu">Kontrol ediliyor</span></div><p>Merkezi servis üzerinden</p></div><div class="kart kart-sayac"><span class="kart-ikonu" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Zm0 0v6h6M8 13h8M8 17h5"/></svg></span><h2 id="kayitSayisiBaslik">TOPLAM KAYIT</h2><div class="sayi" id="kayitSayisi">0 <span style="font-size:12px;font-weight:400;color:#85909c">Belge</span></div><p>Filtreye uyan toplam kayıt</p></div></div>
+<div class="icerik"><section class="liste"><div class="listebas"><h2>Belge Listesi</h2><span class="rozet">Kaydedilen belgeler</span></div><div class="filtreler"><div class="arama"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="arama" maxlength="64" aria-label="Tüm dosyalarda ara" placeholder="Tüm kayıtlarda ara…" autocomplete="off"></div><div class="tur-filtresi"><label for="tur">Belge Türü</label><div class="tur-secici" id="turSecici"><button id="tur" class="tur-dugmesi" type="button" value="" aria-label="Belge Türü: Tüm Belgeler" aria-haspopup="listbox" aria-expanded="false" aria-controls="turSecenekleri"><span id="turMetni">Tümü</span><span aria-hidden="true">⌄</span></button><div class="tur-secenekleri gizli" id="turSecenekleri" role="listbox" aria-label="Belge Türü"><button type="button" role="option" aria-selected="true" tabindex="-1" data-tur="">Tüm Belgeler</button><button type="button" role="option" aria-selected="false" tabindex="-1" data-tur="P">Parça</button><button type="button" role="option" aria-selected="false" tabindex="-1" data-tur="M">Montaj</button></div></div></div></div><div class="tablo-alani" role="region" aria-label="Belge kayıtları" tabindex="0"><table><thead><tr><th>ID</th><th>DOSYA ADI</th><th>TARİH · TSİ</th></tr></thead><tbody id="satirlar"></tbody></table></div><div class="listealt"><span id="listeOzeti" aria-live="polite"></span><span class="sayfa-dugmeleri"><button class="buton" id="oncekiSayfa" type="button">Önceki</button> <button class="buton" id="sonrakiSayfa" type="button">Sonraki</button></span><span class="secim-ipucu">Bir kayıt seçerek ayrıntıları görün</span></div></section>
+<aside class="detay"><div class="detaybas"><h2>Belge Ayrıntıları</h2><span class="rozet" id="detayTuru">Parça</span></div><div id="detayGovdesi"><div class="cizim" id="belgeGorseli" role="img" aria-label="Parça simgesi"></div><div class="detayetiket" id="detayEtiket"></div><p class="dosya" id="detayDosya"></p><dl><div><dt>Global ID</dt><dd id="detayId"></dd></div><div><dt>Oluşturulma · TSİ</dt><dd id="detayTarih"></dd></div><div><dt>Kayıt durumu</dt><dd>Onaylandı</dd></div></dl><button class="buton kopya" id="kopyala">Dosya adını kopyala</button></div><div class="bilgi">Dosya adı ilk kaydetmede otomatik belirlenir. Normal kaydetmede korunur; yeni dosya oluşturan Farklı Kaydet işleminde yeni ad alınır.</div></aside></div><div class="taslaknot"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="m6.5 10 2.3 2.3 4.7-4.7"/></svg>Kayıtlar, SolidWorks ile başarıyla kaydedilip onaylanan belgeleri gösterir.</div><footer class="alt"><span>Pronom · Web uygulaması</span><span>Son kontrol: <span id="sonKontrol">henüz yapılmadı</span></span></footer></section>
+<section id="ayarlarSayfasi" class="gizli"><div class="baslik"><div><span class="ust-etiket">MERKEZİ SERVİS</span><h1>Bağlantı bilgileri</h1><p>Dosya kayıtlarının alındığı merkezi servis.</p></div></div><div class="ayar"><label for="apiAdresi">Servis adresi</label><input id="apiAdresi" type="url" readonly><p>Servis ve kayıt listesi bu adres üzerinden kontrol edilir.</p><button class="buton birincil" id="baglantiyiKontrolEt">Bağlantıyı kontrol et</button></div></section></main></div></div><div id="mesaj" class="mesaj gizli" role="status" aria-live="polite"></div>
+<script>
+'use strict';
+let kayitlar=[];let baslangic=0;let toplam=0;const sayfaBoyutu=100;let yukleniyor=false;let yuklemeHatasi=false;let istekNo=0;let etkinIstek=null;let aramaZamani;
+const el=id=>document.getElementById(id);let seciliId=1;let mesajZamani;
+function bildir(metin){clearTimeout(mesajZamani);el('mesaj').textContent=metin;el('mesaj').classList.remove('gizli');mesajZamani=setTimeout(()=>el('mesaj').classList.add('gizli'),4000)}
+const gorseller={
+P:'<svg viewBox="0 0 140 100" aria-hidden="true"><path d="M24 52 91 18l28 16-66 35Z" fill="#e4f1ed"/><path d="M24 52v18l29 16V69Z" fill="#86b4a8"/><path d="M53 69v17l66-35V34Z" fill="#bed9d0"/><path d="m24 52 67-34 28 16v17L53 86 24 70Zm0 0 29 17 66-35M53 69v17"/><ellipse cx="83" cy="39" rx="12" ry="6" transform="rotate(-27 83 39)" fill="#f5f7fb"/><ellipse cx="51" cy="56" rx="7" ry="3.5" transform="rotate(-27 51 56)" fill="#f5f7fb"/><path d="m60 76 50-26" opacity=".4"/></svg><span class="gorsel-adi">PARÇA</span>',
+M:'<svg viewBox="0 0 140 100" aria-hidden="true"><path d="m15 63 72-36 38 22-72 36Z" fill="#f0dec1"/><path d="M15 63v9l38 22v-9Zm38 22v9l72-36v-9" fill="#e2c396"/><path d="m15 63 72-36 38 22v9L53 94 15 72Zm0 0 38 22 72-36M53 85v9"/><path d="m33 44 22-11 17 10-22 12Z" fill="#e6edfa" stroke="#6f87af"/><path d="M33 44v21l17 10V55Zm17 11v20l22-11V43" fill="#c7d6ee" stroke="#6f87af"/><path d="m73 27 22-11 18 10-22 12Z" fill="#f5e8d4"/><path d="M73 27v25l18 10V38Zm18 11v24l22-11V26" fill="#e6c79a"/><path d="m61 57 25-13" stroke="#729078" stroke-width="5"/><circle cx="60" cy="57" r="4" fill="#cfdfd0" stroke="#729078"/><path d="m91 18 8 4M40 47l9 5" stroke-width="2"/></svg><span class="gorsel-adi">MONTAJ</span>'
+};
+function gorseliGuncelle(kayit){const tur=kayit.dosya[0];el('belgeGorseli').innerHTML=gorseller[tur];el('belgeGorseli').classList.toggle('montaj-gorseli',tur==='M');el('belgeGorseli').setAttribute('aria-label',tur==='M'?'Birbirine bağlı bileşenlerden oluşan montaj simgesi':'Tek mekanik parçayı gösteren parça simgesi');}
+el('panelDugmesi').onclick=()=>{const kapali=el('pencereGovdesi').classList.toggle('panel-kapali');el('solPanel').inert=kapali;el('panelDugmesi').setAttribute('aria-expanded',String(!kapali));const metin=kapali?'Sol paneli aç':'Sol paneli kapat';el('panelDugmesi').setAttribute('aria-label',metin);el('panelDugmesi').title=metin;el('panelOku').setAttribute('d',kapali?'M9 4v16m4-11 3 3-3 3':'M9 4v16m7-11-3 3 3 3');};
+
+function detay(k){el('detayGovdesi').classList.toggle('gizli',!k);el('detayTuru').textContent=k?(k.dosya[0]==='P'?'Parça':'Montaj'):'Seçim yok';if(!k)return;gorseliGuncelle(k);el('detayEtiket').textContent=k.dosya;el('detayDosya').textContent=k.dosya[0]==='P'?'Parça belgesi':'Montaj belgesi';el('detayId').textContent=k.id;el('detayTarih').textContent=k.tarih;}
+function listele(){
+ const liste=kayitlar;
+ if(!liste.some(k=>k.id===seciliId))seciliId=liste[0]?.id??null;
+ const govde=el('satirlar');govde.replaceChildren();
+ govde.closest('table').setAttribute('aria-busy',String(yukleniyor));
+ for(const k of liste){
+  const satir=document.createElement('tr');satir.classList.toggle('secili',k.id===seciliId);satir.tabIndex=0;
+  satir.setAttribute('aria-label',k.dosya);satir.setAttribute('aria-selected',String(k.id===seciliId));
+  const id=document.createElement('td');id.textContent=k.id;
+  const ad=document.createElement('td');ad.className='ad';
+  const dosyaHucre=document.createElement('span');dosyaHucre.className='dosya-hucre';
+  const isaret=document.createElement('span');isaret.className='dosya-isareti'+(k.dosya[0]==='M'?' montaj':'');isaret.textContent=k.dosya[0];isaret.setAttribute('aria-hidden','true');
+  const dosyaAdi=document.createElement('span');dosyaAdi.textContent=k.dosya;dosyaHucre.append(isaret,dosyaAdi);ad.append(dosyaHucre);
+  const tarih=document.createElement('td');tarih.className='tarih';tarih.textContent=k.tarih;
+  satir.append(id,ad,tarih);
+  function sec(){seciliId=k.id;listele();Array.from(govde.children).find(s=>s.getAttribute('aria-selected')==='true')?.focus({preventScroll:true});}
+  satir.onclick=sec;satir.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();sec();}};govde.append(satir);
+ }
+ if(!liste.length){
+  const satir=document.createElement('tr'),hucre=document.createElement('td');hucre.colSpan=3;hucre.className='bos';
+  hucre.textContent=yuklemeHatasi?'Kayıtlar alınamadı. Bağlantıyı kontrol edip yeniden deneyin.':yukleniyor?'Kayıtlar yükleniyor…':el('arama').value.trim()||el('tur').value?'Aramanıza uygun kayıt bulunamadı.':'Henüz onaylanmış belge yok.';
+  satir.append(hucre);govde.append(satir);
+ }
+ const filtreli=Boolean(el('arama').value.trim()||el('tur').value);
+ el('kayitSayisiBaslik').textContent=filtreli?'EŞLEŞEN KAYITLAR':'TOPLAM KAYIT';
+ el('kayitSayisi').textContent=yukleniyor?'Yükleniyor…':yuklemeHatasi?'—':toplam+' belge';
+ el('listeOzeti').textContent=yukleniyor?'Kayıtlar yükleniyor…':yuklemeHatasi?'Kayıtlar alınamadı':toplam?'Sayfa '+(baslangic/sayfaBoyutu+1)+' / '+Math.ceil(toplam/sayfaBoyutu)+' · '+(baslangic+1)+'–'+(baslangic+liste.length)+' / '+toplam+' kayıt':'0 kayıt';
+ el('oncekiSayfa').disabled=yukleniyor||yuklemeHatasi||baslangic===0;
+ el('sonrakiSayfa').disabled=yukleniyor||yuklemeHatasi||baslangic+liste.length>=toplam;
+ detay(liste.find(k=>k.id===seciliId));
+}
+async function oku(yol,sinyal){const yanit=await fetch(yol,{cache:'no-store',signal:sinyal??AbortSignal.timeout(15000)});if(!yanit.ok)throw {kod:yanit.status};return await yanit.json();}
+async function saglik(){try{await oku('/api/health');el('servisDurumu').textContent='Hazır';el('sqlDurumu').textContent='Bağlı';el('servisNoktasi').style.background='#30a36f';el('sqlNoktasi').style.background='#30a36f';el('servisNotu').textContent='Son kontrol başarılı';}catch(h){el('servisDurumu').textContent=h.kod===503?'Ulaşılıyor':'Ulaşılamıyor';el('sqlDurumu').textContent=h.kod===503?'Erişilemiyor':'Bilinmiyor';el('servisNoktasi').style.background='#cf5e50';el('sqlNoktasi').style.background='#cf5e50';el('servisNotu').textContent='Bağlantıyı kontrol edin';}el('sonKontrol').textContent=new Date().toLocaleTimeString('tr-TR',{timeZone:'Europe/Istanbul',hour:'2-digit',minute:'2-digit'});}
+function filtreDegisti(gecikme=0){
+ clearTimeout(aramaZamani);istekNo++;etkinIstek?.abort();
+ baslangic=0;seciliId=null;kayitlar=[];toplam=0;yukleniyor=true;yuklemeHatasi=false;listele();
+ aramaZamani=setTimeout(()=>yukle(),gecikme);
+}
+async function yukle(){
+ clearTimeout(aramaZamani);
+ const sira=++istekNo;etkinIstek?.abort();const denetim=new AbortController();etkinIstek=denetim;
+ yukleniyor=true;yuklemeHatasi=false;kayitlar=[];el('yenile').disabled=true;listele();
+ const zaman=setTimeout(()=>denetim.abort(),15000);
+ const sorgu=new URLSearchParams({baslangic:String(baslangic),adet:String(sayfaBoyutu)});
+ const arama=el('arama').value.trim(),tur=el('tur').value;
+ if(arama)sorgu.set('arama',arama);if(tur)sorgu.set('tur',tur);
+ try{
+  const veri=await oku('/api/documents?'+sorgu,denetim.signal);if(sira!==istekNo)return;
+  if(!Number.isSafeInteger(veri.toplam)||veri.toplam<0||!Array.isArray(veri.belgeler))throw new Error('Geçersiz liste yanıtı');
+  toplam=veri.toplam;
+  if(baslangic>0&&baslangic>=toplam){baslangic=toplam?Math.floor((toplam-1)/sayfaBoyutu)*sayfaBoyutu:0;return yukle();}
+  kayitlar=veri.belgeler.map(k=>({id:k.id,dosya:k.dosyaAdi,tarih:new Date(k.tarih).toLocaleString('tr-TR',{timeZone:'Europe/Istanbul'})}));
+ }catch{
+  if(sira!==istekNo)return;kayitlar=[];toplam=0;yuklemeHatasi=true;bildir('Dosya kayıtları alınamadı. Bağlantıyı kontrol edin.');
+ }finally{
+  clearTimeout(zaman);if(sira===istekNo){yukleniyor=false;etkinIstek=null;el('yenile').disabled=false;listele();}
+ }
+}
+function sayfa(ayar){el('kayitlarSayfasi').classList.toggle('gizli',ayar);el('ayarlarSayfasi').classList.toggle('gizli',!ayar);el('kayitlarMenusu').classList.toggle('aktif',!ayar);el('ayarlarMenusu').classList.toggle('aktif',ayar)}
+el('kayitlarMenusu').onclick=()=>sayfa(false);el('ayarlarMenusu').onclick=()=>sayfa(true);el('arama').addEventListener('input',()=>filtreDegisti(250));el('tur').addEventListener('change',()=>filtreDegisti());
+
+el('yenile').onclick=()=>Promise.all([saglik(),yukle()]);
+el('baglantiyiKontrolEt').onclick=saglik;
+el('oncekiSayfa').onclick=()=>{baslangic=Math.max(0,baslangic-sayfaBoyutu);yukle();};
+el('sonrakiSayfa').onclick=()=>{baslangic+=sayfaBoyutu;yukle();};
+el('apiAdresi').value=location.origin;
+function secimleKopyala(metin){
+ const oncekiOdak=document.activeElement,alan=document.createElement('textarea');
+ alan.value=metin;alan.readOnly=true;alan.setAttribute('aria-label','Kopyalanacak dosya adı');
+ alan.style.cssText='position:fixed;top:0;left:-9999px;';
+ document.body.append(alan);
+ try{alan.focus({preventScroll:true});alan.select();if(!document.execCommand('copy'))throw new Error('Kopyalama reddedildi');}
+ finally{alan.remove();oncekiOdak?.focus({preventScroll:true});}
+}
+async function dosyaAdiniKopyala(metin){
+ if(navigator.clipboard?.writeText){
+  try{await navigator.clipboard.writeText(metin);return;}catch{}
+ }
+ secimleKopyala(metin);
+}
+el('kopyala').onclick=async()=>{const k=kayitlar.find(k=>k.id===seciliId);if(!k)return;try{await dosyaAdiniKopyala(k.dosya);bildir('Dosya adı kopyalandı.');}catch{bildir('Panoya erişilemiyor. Dosya adını ayrıntı kartından seçerek kopyalayabilirsiniz: '+k.dosya);}};
+const turSecenekleri=Array.from(el('turSecenekleri').querySelectorAll('[data-tur]'));
+function turMenusunuKapat(odak=false){el('turSecenekleri').classList.add('gizli');el('tur').setAttribute('aria-expanded','false');if(odak)el('tur').focus();}
+function turMenusunuAc(){el('turSecenekleri').classList.remove('gizli');el('tur').setAttribute('aria-expanded','true');(turSecenekleri.find(b=>b.dataset.tur===el('tur').value)||turSecenekleri[0]).focus();}
+el('tur').onclick=()=>el('tur').getAttribute('aria-expanded')==='true'?turMenusunuKapat(true):turMenusunuAc();
+el('tur').addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();turMenusunuAc();}});
+for(const [i,secenek] of turSecenekleri.entries()){
+secenek.onclick=()=>{el('tur').value=secenek.dataset.tur;el('turMetni').textContent=secenek.textContent;el('tur').setAttribute('aria-label','Belge türü: '+secenek.textContent);for(const b of turSecenekleri)b.setAttribute('aria-selected',String(b===secenek));turMenusunuKapat(true);el('tur').dispatchEvent(new Event('change'));};
+secenek.addEventListener('keydown',e=>{let hedef;if(e.key==='ArrowDown')hedef=(i+1)%3;else if(e.key==='ArrowUp')hedef=(i+2)%3;else if(e.key==='Home')hedef=0;else if(e.key==='End')hedef=2;else if(e.key==='Escape'){e.preventDefault();turMenusunuKapat(true);return;}if(hedef!==undefined){e.preventDefault();turSecenekleri[hedef].focus();}});
+}
+document.addEventListener('click',e=>{if(!el('turSecici').contains(e.target))turMenusunuKapat();});
+el('turSecici').addEventListener('focusout',e=>{if(!el('turSecici').contains(e.relatedTarget))turMenusunuKapat();});
+const setupIndir=el('setupIndir');
+function setupIndirmeAdresiniYenile(){setupIndir.href='/indir/Pronom-Kurulum.exe?v='+Date.now();}
+setupIndir.addEventListener('click',setupIndirmeAdresiniYenile);
+setupIndir.addEventListener('auxclick',setupIndirmeAdresiniYenile);
+listele();saglik();yukle();
+</script></body></html>

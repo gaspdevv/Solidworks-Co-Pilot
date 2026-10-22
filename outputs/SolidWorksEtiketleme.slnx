@@ -1,0 +1,13 @@
+﻿<Solution>
+  <Folder Name="/Kaynak/">
+    <Project Path="src/Etiket.Api/Etiket.Api.csproj" />
+    <Project Path="src/Etiket.SolidWorks/Etiket.SolidWorks.csproj" />
+    <Project Path="src/Etiket.TestIstemcisi/Etiket.TestIstemcisi.csproj" />
+    <Project Path="src/Etiket.PencereTanisi/Etiket.PencereTanisi.csproj" />
+    <Project Path="src/Etiket.Kurulum/Etiket.Kurulum.csproj" />
+  </Folder>
+  <Folder Name="/Testler/">
+    <Project Path="tests/Etiket.Api.Testler/Etiket.Api.Testler.csproj" />
+    <Project Path="tests/Etiket.SolidWorks.Testler/Etiket.SolidWorks.Testler.csproj" />
+  </Folder>
+</Solution>

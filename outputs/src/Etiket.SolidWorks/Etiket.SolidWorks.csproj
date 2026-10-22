@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><TargetFramework>net48</TargetFramework><LangVersion>latest</LangVersion><PlatformTarget>x64</PlatformTarget><ImplicitUsings>disable</ImplicitUsings><Nullable>disable</Nullable><GenerateAssemblyInfo>true</GenerateAssemblyInfo><AssemblyName>Pronom.SolidWorks</AssemblyName><AutomaticallyUseReferenceAssemblyPackages>false</AutomaticallyUseReferenceAssemblyPackages><SolidWorksApiKlasoru Condition="'$(SolidWorksApiKlasoru)'==''">$(MSBuildThisFileDirectory)..\..\..\work\SolidWorks2023SP01</SolidWorksApiKlasoru></PropertyGroup>
+ <ItemGroup>
+  <Compile Remove="KaydetmeKarari.cs" />
+  <!-- Klasör okuma deneyleri kararlı test DLL içine alınmaz. -->
+  <Compile Remove="NativeAdresKlasorOkuyucu.cs;NativeHedefKlasorOkuyucu.cs" />
+  <Reference Include="System.Net.Http"/><Reference Include="System.Windows.Forms"/><Reference Include="System.Web.Extensions"/><Reference Include="System.Runtime.Serialization"/>
+  <Reference Include="SolidWorks.Interop.sldworks"><HintPath>$(SolidWorksApiKlasoru)\SolidWorks.Interop.sldworks.dll</HintPath><EmbedInteropTypes>false</EmbedInteropTypes><Private>true</Private></Reference>
+  <Reference Include="SolidWorks.Interop.swconst"><HintPath>$(SolidWorksApiKlasoru)\SolidWorks.Interop.swconst.dll</HintPath><EmbedInteropTypes>false</EmbedInteropTypes><Private>true</Private></Reference>
+  <Reference Include="SolidWorks.Interop.swpublished"><HintPath>$(SolidWorksApiKlasoru)\SolidWorks.Interop.swpublished.dll</HintPath><EmbedInteropTypes>false</EmbedInteropTypes><Private>true</Private></Reference>
+ </ItemGroup>
+ <Target Name="ApiReferanslariniKontrolEt" BeforeTargets="ResolveReferences"><Error Condition="!Exists('$(SolidWorksApiKlasoru)\SolidWorks.Interop.sldworks.dll') Or !Exists('$(SolidWorksApiKlasoru)\SolidWorks.Interop.swconst.dll') Or !Exists('$(SolidWorksApiKlasoru)\SolidWorks.Interop.swpublished.dll')" Text="Gerçek SolidWorks 2023 SP01 API dosyalarını work/SolidWorks2023SP01 klasörüne kopyalayın veya SolidWorksApiKlasoru belirtin."/></Target>
+</Project>

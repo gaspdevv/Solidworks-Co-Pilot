@@ -1,0 +1,4 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net48</TargetFramework><LangVersion>latest</LangVersion><PlatformTarget>x64</PlatformTarget><AutomaticallyUseReferenceAssemblyPackages>false</AutomaticallyUseReferenceAssemblyPackages><AssemblyName>Pronom.PencereTanisi</AssemblyName></PropertyGroup>
+ <ItemGroup><Compile Include="../Etiket.SolidWorks/HedefPencereYaniti.cs" Link="HedefPencereYaniti.cs"/><Compile Include="../Etiket.SolidWorks/HedefOkumaTekrari.cs" Link="HedefOkumaTekrari.cs"/><Reference Include="System.Runtime.Serialization"/><Reference Include="UIAutomationClient"/><Reference Include="UIAutomationTypes"/><Reference Include="WindowsBase"/><Reference Include="System.Windows.Forms"/></ItemGroup>
+</Project>
