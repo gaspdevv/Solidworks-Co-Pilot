@@ -10,8 +10,6 @@ Amaç, küçük bir ekipte farklı bilgisayarlardan oluşturulan dosyaları tuta
 
 **Hedef ortam:** Windows x64 · SolidWorks 2023 · SQL Server 2022
 
-> Bu depo otomatik numaralandırma ve kayıt takibi uygulamasının kaynaklarını içerir. Yapay zekâ ile model düzenleme, teknik resim üretimi veya satın alma/BOM hazırlayan ayrı Copilot ürünü bu deponun kapsamına dahil değildir.
-
 ## Neler yapar?
 
 | İşlem | Uygulamanın davranışı |
